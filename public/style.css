@@ -1,0 +1,239 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: system-ui, -apple-system, sans-serif;
+}
+
+body {
+  background-color: #1e1e1e;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  padding: 20px;
+}
+
+.canvas-frame {
+  width: 100%;
+  max-width: 950px;
+  background-color: #939393;
+  border-radius: 12px;
+  padding: 15px 25px 35px 25px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+  border: 2px solid #3bb582;
+}
+
+.top-navbar {
+  width: 100%;
+  background-color: #636363;
+  border-radius: 8px;
+  padding: 8px 18px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  color: #ffffff;
+  font-weight: 600;
+  font-size: 15px;
+}
+
+.nav-divider { color: #999; }
+
+.search-box input {
+  background-color: #d9d9d9;
+  border: none;
+  outline: none;
+  padding: 4px 10px;
+  border-radius: 6px;
+  font-size: 13px;
+  width: 160px;
+  color: #222;
+}
+
+.pill-navigation {
+  background-color: #e3e3e3;
+  padding: 6px 12px;
+  border-radius: 25px;
+  display: flex;
+  gap: 15px;
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.25);
+}
+
+.pill-btn {
+  background: none;
+  border: none;
+  font-weight: 700;
+  font-size: 14px;
+  color: #111;
+  padding: 8px 16px;
+  border-radius: 20px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.pill-btn:hover { background-color: #c9c9c9; }
+.pill-btn.active { background-color: #4b4b4b; color: #ffffff; }
+.pill-btn.highlight { background-color: #2563eb; color: white; }
+.pill-btn.highlight:hover { background-color: #1d4ed8; }
+
+.main-card {
+  width: 100%;
+  background-color: #797979;
+  border-radius: 12px;
+  padding: 25px;
+  min-height: 320px;
+  box-shadow: inset 0 2px 5px rgba(0,0,0,0.1), 0 8px 20px rgba(0,0,0,0.2);
+}
+
+.task-table {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0 8px;
+}
+
+.task-table th {
+  background-color: #d9d9d9;
+  color: #111;
+  font-weight: 700;
+  padding: 10px;
+  font-size: 14px;
+  text-align: center;
+}
+
+.task-table th:first-child { border-top-left-radius: 8px; border-bottom-left-radius: 8px; }
+.task-table th:last-child { border-top-right-radius: 8px; border-bottom-right-radius: 8px; }
+
+.task-table td {
+  background-color: #ececec;
+  padding: 12px;
+  font-size: 13.5px;
+  color: #222;
+  text-align: center;
+}
+
+.task-table tr td:first-child { border-top-left-radius: 6px; border-bottom-left-radius: 6px; }
+.task-table tr td:last-child { border-top-right-radius: 6px; border-bottom-right-radius: 6px; }
+
+.status-badge {
+  padding: 4px 10px;
+  border-radius: 12px;
+  font-size: 11px;
+  font-weight: bold;
+  cursor: pointer;
+  display: inline-block;
+}
+
+.status-ditugaskan { background-color: #fef08a; color: #854d0e; }
+.status-selesai { background-color: #bbf7d0; color: #166534; }
+
+.btn-action {
+  border: none;
+  background: none;
+  cursor: pointer;
+  font-size: 15px;
+  margin: 0 4px;
+}
+
+.modal-overlay {
+  position: fixed;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: rgba(0,0,0,0.6);
+  display: none;
+  justify-content: center;
+  align-items: center;
+  z-index: 99;
+}
+
+.modal-overlay.open { display: flex; }
+
+.modal-box {
+  background: #ffffff;
+  padding: 25px;
+  border-radius: 12px;
+  width: 100%;
+  max-width: 400px;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+}
+
+.modal-box h3 { margin-bottom: 15px; color: #111; }
+.form-group { margin-bottom: 12px; display: flex; flex-direction: column; gap: 5px; }
+.form-group label { font-size: 12px; font-weight: bold; color: #555; }
+.form-group input { padding: 8px; border: 1px solid #ccc; border-radius: 6px; }
+
+.modal-actions { display: flex; justify-content: flex-end; gap: 10px; margin-top: 18px; }
+.btn-primary { background: #2563eb; color: white; border: none; padding: 8px 16px; border-radius: 6px; cursor: pointer; }
+.btn-secondary { background: #e5e7eb; color: #374151; border: none; padding: 8px 16px; border-radius: 6px; cursor: pointer; }
+
+/* ==========================================
+   RESPONSIVE DESIGN (Full Screen HP)
+   ========================================== */
+@media (max-width: 768px) {
+  body {
+    padding: 0;
+    align-items: flex-start; /* Menyusun elemen mulai dari paling atas layar HP */
+    background-color: #939393; /* Samakan background luar dengan warna frame */
+  }
+
+  .canvas-frame {
+    width: 100%;
+    min-height: 100vh; /* Memenuhi seluruh tinggi layar HP */
+    border-radius: 0;   /* Hilangkan sudut membulat agar pas ke tepi layar */
+    border: none;       /* Hilangkan outline hijau di tampilan HP */
+    padding: 10px 10px 20px 10px;
+    gap: 12px;
+    box-shadow: none;
+    justify-content: flex-start;
+  }
+
+  /* Top Navbar Nempel di Paling Atas */
+  .top-navbar {
+    border-radius: 6px;
+    padding: 10px;
+    font-size: 13px;
+  }
+
+  .search-box input {
+    width: 110px;
+    font-size: 12px;
+  }
+
+  /* Pill Navigation Pas Lebar Layar HP */
+  .pill-navigation {
+    width: 100%;
+    justify-content: space-between;
+    gap: 4px;
+    padding: 4px;
+    border-radius: 20px;
+  }
+
+  .pill-btn {
+    padding: 8px 4px;
+    font-size: 11px;
+    flex: 1;
+    text-align: center;
+    border-radius: 16px;
+  }
+
+  /* Area Tabel Memanjang Mengisi Sisa Layar */
+  .main-card {
+    flex: 1;
+    width: 100%;
+    padding: 10px;
+    border-radius: 8px;
+    overflow-x: auto;
+  }
+
+  .task-table {
+    min-width: 480px;
+  }
+
+  /* Modal Input Form */
+  .modal-box {
+    width: 92%;
+    padding: 18px;
+  }
+}

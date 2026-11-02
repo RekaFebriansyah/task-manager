@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Task Manager Perkuliahan</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="canvas-frame">
+    <!-- Top Bar -->
+    <div class="top-navbar">
+      <span class="nav-home">Home</span>
+      <span class="nav-divider">|</span>
+      <div class="search-box">
+        <input type="text" id="search-input" placeholder="Search...">
+      </div>
+    </div>
+
+    <!-- Pill Navigation (Tambah Tugas, Ditugaskan, Tugas Selesai) -->
+    <div class="pill-navigation">
+      <button id="btn-tab-add" class="pill-btn highlight">+ Tambah Tugas</button>
+      <button class="pill-btn tab-filter active" data-status="ditugaskan">Ditugaskan</button>
+      <button class="pill-btn tab-filter" data-status="selesai">Tugas Selesai</button>
+    </div>
+
+    <!-- Card Tabel Utama -->
+    <div class="main-card">
+      <table class="task-table">
+        <thead>
+          <tr>
+            <th width="8%">NO</th>
+            <th width="22%">Mata Kuliah</th>
+            <th width="30%">Nama Tugas</th>
+            <th width="15%">Deadline</th>
+            <th width="13%">Status</th>
+            <th width="12%">Aksi</th>
+          </tr>
+        </thead>
+        <tbody id="table-body">
+          <!-- Data dari JS -->
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- Modal Pop-Up Input Tugas -->
+  <div id="modal-form" class="modal-overlay">
+    <div class="modal-box">
+      <h3>Tambah Tugas Baru</h3>
+      <form id="add-task-form">
+        <div class="form-group">
+          <label>Mata Kuliah</label>
+          <input type="text" id="input-matkul" placeholder="Contoh: Pemrograman Web" required>
+        </div>
+        <div class="form-group">
+          <label>Nama Tugas</label>
+          <input type="text" id="input-tugas" placeholder="Contoh: Makalah REST API" required>
+        </div>
+        <div class="form-group">
+          <label>Deadline</label>
+          <input type="date" id="input-deadline">
+        </div>
+        <div class="modal-actions">
+          <button type="button" id="btn-cancel" class="btn-secondary">Batal</button>
+          <button type="submit" class="btn-primary">Simpan</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
